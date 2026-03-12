@@ -15,6 +15,6 @@ export class LoanApplication {
   loan : Loan = new Loan();
 
   addLoan() {
-
+this.application.loans.push(this.loan)
   }
 }
