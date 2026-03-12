@@ -1,0 +1,129 @@
+<div class="container">
+
+  <h1 class="title">Loan Application Form</h1>
+
+  <div class="form-wrapper">
+
+    <!-- LEFT SECTION -->
+    <div class="form-section">
+
+      <div class="form-group full">
+        <label>Full Name:</label>
+        <input type="text" [(ngModel)]="application.fullName">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Date of Birth:</label>
+          <input type="date" [(ngModel)]="application.dateOfBirth">
+        </div>
+
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="email" [(ngModel)]="application.email">
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number:</label>
+          <input type="text" [(ngModel)]="application.phoneNumber">
+        </div>
+      </div>
+
+      <div class="form-group full">
+        <label>Address:</label>
+        <textarea rows="2" [(ngModel)]="application.address"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>City:</label>
+          <input type="text" [(ngModel)]="application.city">
+        </div>
+
+        <div class="form-group">
+          <label>State:</label>
+          <input type="text" [(ngModel)]="application.state ">
+        </div>
+
+        <div class="form-group">
+          <label>Zip Code:</label>
+          <input type="text" [(ngModel)]="application.zipCode">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Annual Income:</label>
+          <input type="text" [(ngModel)]="application.annualIncome  ">
+        </div>
+
+        <div class="form-group">
+          <label>Employment Status:</label>
+          <select [(ngModel)]="application.employmentStatus">
+
+            <option>Employed</option>
+            <option>Self Employed</option>
+            <option>Unemployed</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Credit Score:</label>
+          <input type="text" [(ngModel)]="application.creditScore">
+        </div>
+      </div>
+
+      <div class="form-group full">
+        <label>Assets:</label>
+        <textarea rows="2" [(ngModel)]="application.assets" placeholder="Describe your assets (e.g., property, vehicle, etc.)"></textarea>
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT SECTION -->
+    <div class="loan-section">
+
+      <h3>Current Loans</h3>
+
+      <div class="loan-inputs">
+        <div class="loan-field">
+          <label>Bank Name:</label>
+          <input type="text" [(ngModel)]="loan.bankName">
+        </div>
+
+        <div class="loan-field">
+          <label>Loan Amount:</label>
+          <input type="text" [(ngModel)]="loan.loanAmount   ">
+        </div>
+
+        <div class="loan-field">
+          <label>EMI:</label>
+          <input type="text" [(ngModel)]="loan.emi">
+        </div>
+      </div>
+
+      <button class="add-btn" (click)="addLoan()">Add Another Loan</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Sr No</th>
+            <th>Bank</th>
+            <th>Loan Amount</th>
+            <th>EMI</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td colspan="4" class="no-data">No Loans Added yet</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
