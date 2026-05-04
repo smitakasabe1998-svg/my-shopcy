@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { App } from '../../app';
-import { Application, Loan } from '../../model/app.model';
+import { apiREsponse, Application, Loan } from '../../model/app.model';
+import { Master } from '../../sevice/master';
 
 @Component({
   selector: 'app-loan-application',
@@ -11,10 +12,27 @@ import { Application, Loan } from '../../model/app.model';
 })
 export class LoanApplication {
 
-  application : Application = new Application();
-  loan : Loan = new Loan();
+  application: Application = new Application();
+  loan: Loan = new Loan();
+
+  mastersrv = inject(Master)
 
   addLoan() {
-this.application.loans.push(this.loan)
+    const strObj = JSON.stringify(this.loan);
+    const newOb = JSON.parse(strObj)
+    this.application.loans.push(newOb)
+  }
+
+  submitApplication(){
+    this.mastersrv.addNewapp(this.application).subscribe((Result:apiREsponse)=>{
+if (Result.Result){
+  alert('application success')
+}else{
+  alert(Result.Message)
+}
+    }, error =>{
+      alert(error)
+
+    })
   }
 }

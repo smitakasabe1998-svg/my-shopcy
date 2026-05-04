@@ -100,3 +100,23 @@ font-size:13px;
 .no-data{
 color:#777;
 }
+
+.submit-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.submit-btn {
+  background-color: #1976d2;
+  color: white;
+  padding: 12px 40px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #125ca1;
+}
